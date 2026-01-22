@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History - PIWC Philadelphia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="../js/site-data.js"></script>
+    <script src="../js/template-engine.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const app = document.getElementById('app');
+            
+            app.innerHTML = `
+                ${TemplateEngine.renderNavigation(SITE_DATA.navigation, SITE_DATA.site)}
+                
+                ${TemplateEngine.renderPageHero('Our History', 'A Journey of Faith & Service')}
+                
+                <section class="py-5">
+                    <div class="container">
+                        <div class="row mb-5">
+                            <div class="col-lg-8 mx-auto text-center">
+                                <p class="lead">From humble beginnings to a thriving community of faith, the Church of Pentecost has been a beacon of hope and love for over two decades. This is our journey.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="history-timeline">
+                            ${SITE_DATA.history.map((item, index) => `
+                                <div class="timeline-item ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}">
+                                    <div class="timeline-content">
+                                        <div class="timeline-year">${item.year}</div>
+                                        ${item.image ? `<img src="${item.image}" alt="${item.title}" class="timeline-image" onerror="this.style.display='none'">` : ''}
+                                        <h3>${item.title}</h3>
+                                        <p>${item.description}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="py-5 bg-light">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto text-center">
+                                <h2 class="mb-4">Be Part of Our Story</h2>
+                                <p class="lead mb-4">Join us as we continue writing new chapters of faith, hope, and love. Your story can become part of ours.</p>
+                                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                                    <a href="contact.html" class="btn btn-outline-primary btn-lg">Visit Us</a>
+                                    <a href="services.html" class="btn btn-outline-primary btn-lg">View Services</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                ${TemplateEngine.renderFooter(SITE_DATA.site, SITE_DATA.social)}
+                ${TemplateEngine.renderSuggestionModal()}
+            `;
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

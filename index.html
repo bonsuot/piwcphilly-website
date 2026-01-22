@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIWC Philadelphia</title>
+    <meta property="og:title" content="PIWC Philadelphia">
+    <meta property="og:description" content="A Place of Love, Healing and Provision">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Content loads here -->
+    </div>
+
+    <!-- Include data and templates -->
+    <script src="js/site-data.js"></script>
+    <script src="js/template-engine.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const app = document.getElementById('app');
+            
+            // Build homepage
+            app.innerHTML = `
+                ${TemplateEngine.renderNavigation(SITE_DATA.navigation, SITE_DATA.site)}
+                
+                <!-- Hero Carousel -->
+                <section class="hero">
+                    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            ${SITE_DATA.heroSlides.map((_, i) => `
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="${i}" ${i === 0 ? 'class="active"' : ''}></button>
+                            `).join('')}
+                        </div>
+                        <div class="carousel-inner">
+                            ${SITE_DATA.heroSlides.map((slide, i) => `
+                                <div class="carousel-item ${i === 0 ? 'active' : ''}">
+                                    <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${slide.image}');">
+                                        <div class="hero-content">
+                                            ${slide.title ? `<h1>${slide.title}</h1>` : ''}
+                                            ${slide.subtitle ? `<p>${slide.subtitle}</p>` : ''}
+                                            ${slide.buttons && slide.buttons.length > 0 ? `
+                                                <div class="hero-buttons">
+                                                    ${slide.buttons.map(btn => `
+                                                        <a href="${btn.url}" class="btn btn-yellow me-3" style="background-color: #3949ab; color: white;">${btn.text}</a>
+                                                    `).join('')}
+                                                </div>
+                                            ` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Service Times -->
+                <section id="services" class="service-times-section py-5">
+                    <div class="container">
+                        <h2 class="section-title text-center mb-5">Service Times</h2>
+                        <div class="row justify-content-center">
+                            ${SITE_DATA.services.map(service => `
+                                <div class="col-md-4 mb-4">
+                                    <div class="service-time-card">
+                                        <div class="service-icon"><i class="${service.icon}"></i></div>
+                                        <div class="service-info">
+                                            <h3>${service.title}</h3>
+                                            <div class="time-location">
+                                                <p class="time"><i class="far fa-clock"></i> ${service.time}</p>
+                                                <p class="location"><i class="fas fa-map-marker-alt"></i> ${service.location}</p>
+                                            </div>
+                                            ${service.link ? `<a href="${service.link}" class="btn btn-outline-primary">Learn More</a>` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Live Stream -->
+                <section class="live-stream-section py-5 bg-light" id="live-worship">
+                    <div class="container">
+                        <h2 class="section-title text-center mb-5" style="color: #1B2845;">Live Worship</h2>
+                        <div class="row align-items-center">
+                            <div class="col-lg-7 mb-4 mb-lg-0">
+                                <div class="embed-responsive embed-responsive-16by9 live-stream-container">
+                                    <iframe src="https://www.youtube.com/embed/live_stream?channel=${SITE_DATA.site.youtubeChannel}" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="live-stream-info p-4 bg-white rounded shadow">
+                                    <h3>Join Our Live Services</h3>
+                                    <p class="mb-4">Experience our worship services from anywhere in the world.</p>
+                                    <div class="upcoming-stream mb-4">
+                                        <h4>Next Live Stream</h4>
+                                        <p><i class="far fa-calendar-alt"></i> Sundays</p>
+                                        <p><i class="far fa-clock"></i> 8:30 AM - 11:00 AM EST</p>
+                                    </div>
+                                    <a href="https://www.youtube.com/channel/${SITE_DATA.site.youtubeChannel}" class="btn btn-outline-primary" target="_blank">
+                                        <i class="fab fa-youtube"></i> Subscribe
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Leaders -->
+                <section class="pastor-section py-5">
+                    <div class="container">
+                        <h2 class="section-title text-center mb-5">Meet Our Leaders</h2>
+                        <div class="row align-items-center">
+                            ${SITE_DATA.leaders.map(leader => `
+                                <div class="col-md-4 mb-4">
+                                    <div class="pastor-card text-center">
+                                        <img src="${leader.image}" alt="${leader.title}" class="img-fluid rounded mb-4">
+                                        <h3>${leader.title}</h3>
+                                        <p class="lead">${leader.name}</p>
+                                        <p class="pastor-bio">${leader.bio}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Events -->
+                <section class="announcements-section">
+                    <div class="container">
+                        <div class="section-header">
+                            <h2 class="section-title">Upcoming Events</h2>
+                            <div class="nav-buttons">
+                                <button class="nav-btn" id="prevBtn">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="nav-btn" id="nextBtn">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="carousel-wrapper">
+                            <div class="carousel-container" id="carousel">
+                                ${SITE_DATA.events.map(event => `
+                                    <div class="event-card">
+                                        <div class="event-image">
+                                            <div class="event-date">
+                                                <div class="date-box">
+                                                    <span class="month">${event.month}</span>
+                                                    <span class="day">${event.day}</span>
+                                                </div>
+                                            </div>
+                                            ${event.image ? `<img src="${event.image}" alt="${event.title}" onerror="this.style.display='none'">` : ''}
+                                            <div class="event-overlay"></div>
+                                        </div>
+                                        <div class="event-details">
+                                            <div class="event-meta">
+                                                <span><i class="far fa-clock"></i> ${event.time}</span>
+                                                <span><i class="fas fa-map-marker-alt"></i> ${event.location}</span>
+                                            </div>
+                                            <h3 class="event-title">${event.title}</h3>
+                                            <p class="event-description">${event.description}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </section>
+                ${TemplateEngine.renderFooter(SITE_DATA.site, SITE_DATA.social)}
+                ${TemplateEngine.renderSuggestionModal()}
+                
+            `;
+
+            // Initialize EmailJS
+            // emailjs.init('eO6Q-nNQblMRmspl0');
+
+            // Carousel navigation for events
+            const carousel = document.getElementById('carousel');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            function updateButtons() {
+                const scrollLeft = carousel.scrollLeft;
+                const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+                prevBtn.disabled = scrollLeft <= 0;
+                nextBtn.disabled = scrollLeft >= maxScroll - 1;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: -430, behavior: 'smooth' });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: 430, behavior: 'smooth' });
+            });
+
+            carousel.addEventListener('scroll', updateButtons);
+            window.addEventListener('resize', updateButtons);
+            updateButtons();
+        });
+
+        
+    </script>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+</body>
+</html>
