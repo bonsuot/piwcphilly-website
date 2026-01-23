@@ -72,7 +72,7 @@ renderNavigation(navItems, siteInfo) {
                         <div class="modal-header">
                             <div>
                                 <h5 class="modal-title">Share Your Ideas</h5>
-                                <p class="text-muted mb-0 mt-2">We value your insights! Share ideas to help our church grow spiritually, numerically, and in service to the community. Your suggestions matter in building a stronger fellowship.</p>
+                                <p class="text-muted mb-0 mt-2">We value your insights! Your suggestions matter in building a stronger fellowship.</p>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>

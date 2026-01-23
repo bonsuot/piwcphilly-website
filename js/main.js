@@ -317,6 +317,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Reinitialize Bootstrap navbar toggle (for dynamic content)
+function reinitNavbarToggle() {
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+
+    if (!navbarCollapse || !navbarToggler) return;
+
+    // Dispose existing instance if any
+    const existing = bootstrap.Collapse.getInstance(navbarCollapse);
+    if (existing) {
+        existing.dispose();
+    }
+
+    // Recreate collapse instance
+    new bootstrap.Collapse(navbarCollapse, {
+        toggle: false
+    });
+}
+
 // Spam guard utility
 function spamGuard(form, options = {}) {
     const {

@@ -253,6 +253,10 @@
                     ${footer.outerHTML}
                     ${Array.from(modals).map(m => m.outerHTML).join('')}
                 `;
+                    
+                // Reinitialize navbar toggle
+                reinitNavbarToggle();
+
 
                 // Load Bootstrap JS AFTER nav is in DOM
                 const bootstrapScript = document.createElement('script');

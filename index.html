@@ -28,6 +28,17 @@
             app.innerHTML = `
                 ${TemplateEngine.renderNavigation(SITE_DATA.navigation, SITE_DATA.site)}
                 
+                <!-- Site Alert -->
+                ${SITE_DATA.alert?.enabled ? `
+                <div class="site-alert alert alert-${SITE_DATA.alert.type} alert-dismissible fade show text-center mb-0" role="alert">
+                    <i class="fas fa-bullhorn me-2"></i>
+                    <span>${SITE_DATA.alert.message}</span>
+                    ${SITE_DATA.alert.dismissible ? `
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    ` : ''}
+                </div>
+                ` : ''}
+
                 <!-- Hero Carousel -->
                 <section class="hero">
                     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">

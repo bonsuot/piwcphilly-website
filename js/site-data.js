@@ -613,6 +613,16 @@ const SITE_DATA = {
         facebook: "https://www.facebook.com/piwcphilly/",
         instagram: "https://www.instagram.com/piwcphilly/",
         youtube: "https://www.youtube.com/channel/UCw2yQUs1nKgTwfSqGsm1h2Q"
+    },
+
+    // ==================== ALERT NOTIFICATIONS ====================
+    // Set 'enabled: true' to show an alert, 'enabled: false' to hide it
+    // Types: 'info' (blue), 'success' (green), 'warning' (yellow), 'urgent' (red)
+    alert: {
+        enabled: true,
+        type: "warning", // info | warning | danger | success
+        message: "Due to extreme weather, Sunday's service will be held virtually at <strong>8:15 AM</strong> this week only.",
+        dismissible: true
     }
 };
 

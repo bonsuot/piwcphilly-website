@@ -1609,3 +1609,19 @@ body {
     border: 1px solid #ddd;
   }
 }
+
+/* ============================================
+   ALERT NOTIFICATION SYSTEM
+   Modern toast-style alerts
+   ============================================ */
+
+.site-alert {
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+    font-weight: 500;
+}
+
+.site-alert i {
+    color: inherit;
+}
