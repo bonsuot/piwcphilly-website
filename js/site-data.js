@@ -163,16 +163,16 @@ const SITE_DATA = {
 
     // ==================== UPCOMING EVENTS ====================
     events: [
-        {
-            month: "JAN",
-            day: "5-18",
-            title: "14 Days Fasting & Prayers",
-            description: "A call to deeper devotion, unity, and seeking God with one heart",
-            time: "07:00 PM",
-            location: "Zoom",
-            image: "/images/events/blank-img.png",
-            featured: true
-        },
+        // {
+        //     month: "",
+        //     day: "",
+        //     title: "",
+        //     description: "",
+        //     time: "",
+        //     location: "",
+        //     image: "",
+        //     featured: true
+        // },
         {
             month: "JAN",
             day: "16-17",
@@ -195,13 +195,13 @@ const SITE_DATA = {
         },
 
         {
-            month: "JAN",
-            day: "30",
-            title: "Regional Spiritual Clinic",
-            description: "",
-            time: "7:30 PM",
-            location: "Delaware",
-            image: "/images/events/blank-img.png",
+            month: "FEB",
+            day: "01",
+            title: "Red Carpet Service",
+            description: "PIWC appreciation day service & brunch",
+            time: "8:30 AM",
+            location: "Church Premises",
+            image: "/images/events/rc.jpeg",
             featured: false
         }
     ],
