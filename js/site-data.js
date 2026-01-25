@@ -499,7 +499,7 @@ const SITE_DATA = {
             {
                 name: "Elder Joe Duncan",
                 position: "PIWC Presiding Elder",
-                image: "images/leadership/ej.jpg"
+                image: "images/leadership/ej.JPG"
             }
             
         ],

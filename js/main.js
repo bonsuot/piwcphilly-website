@@ -3,11 +3,6 @@
 // Page initialization and common utilities
 // ============================================
 
-// Initialize EmailJS on page load
-// (function() {
-//     emailjs.init('eO6Q-nNQblMRmspl0');
-// })();
-
 // Common utility functions used across all pages
 const PIWC = {
     
@@ -159,27 +154,9 @@ const PIWC = {
     }
 };
 
-// Honeypot spam protection
-// const honeypot = document.getElementById('website');
-// if (honeypot && honeypot.value) {
-//     console.warn('Spam detected (honeypot)');
-//     return false;
-// }
-
-
 // Suggestion form submission handler
 function sendSuggestion(event) {
     event.preventDefault();
-
-    // Ensure EmailJS is initialized
-    // if (typeof emailjs !== 'undefined' && !emailjs._initialized) {
-    //     emailjs.init('eO6Q-nNQblMRmspl0');
-    //     emailjs._initialized = true;
-    // }
-    // if (typeof emailjs === 'undefined') {
-    //     showSuggestionFormFeedback('Error: Email service not available. Please try again later.', 'danger');
-    //     return false;
-    // }
 
     const form = event.target;
     const suggestionField = document.getElementById('suggestions');
@@ -297,11 +274,6 @@ function showSuggestionFormFeedback(message, type) {
         feedback.style.display = 'none';
     }, 5000);
 }
-
-// Initialize when DOM is ready
-// document.addEventListener('DOMContentLoaded', function() {
-//     PIWC.init();
-// });
 
 
 
