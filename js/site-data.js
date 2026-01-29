@@ -61,6 +61,14 @@ const SITE_DATA = {
                 { text: "Watch Live", url: "#live-worship" }
             ]
         },
+
+        {
+            image: "images/heroslides/redcn.jpg",
+            title: "",
+            subtitle: "",
+            showButtons: false
+        },
+
         {
             image: "images/heroslides/h2.JPG",
             title: "True Worship",
@@ -163,26 +171,7 @@ const SITE_DATA = {
 
     // ==================== UPCOMING EVENTS ====================
     events: [
-        // {
-        //     month: "",
-        //     day: "",
-        //     title: "",
-        //     description: "",
-        //     time: "",
-        //     location: "",
-        //     image: "",
-        //     featured: true
-        // },
-        {
-            month: "JAN",
-            day: "16-17",
-            title: "The Dynamic Residential Retreat",
-            description: "The Church Unleashed to transform Society through the Gospel and the Power of the Holy Spirit",
-            time: "08:00 PM",
-            location: "654 S College Ave, Newark DE 19713",
-            image: "/images/events/drr.jpeg",
-            featured: true
-        },
+
         {
             month: "JAN",
             day: "30",
@@ -195,13 +184,57 @@ const SITE_DATA = {
         },
 
         {
+            month: "JAN",
+            day: "31",
+            title: "Pennsylvania Area Women's Prayer Meeting",
+            description: "Theme: Tie your robe around your waist and intercede for your children",
+            time: "9:00 AM EST",
+            location: "ZOOM ID: 314 934 2889 Passcode: 863130",
+            image: "/images/events/wpm.jpeg",
+            featured: true
+        },
+
+         {
             month: "FEB",
             day: "01",
             title: "Red Carpet Service",
-            description: "PIWC appreciation day service & brunch",
+            description: "Join US this Sunday for our PIWC appreciation day service & brunch",
             time: "8:30 AM",
             location: "Church Premises",
             image: "/images/events/rc.jpeg",
+            featured: false
+        },
+
+        {
+            month: "FEB",
+            day: "01",
+            title: "National Prayer Watch",
+            description: "Unleashed To Transform Society Through Prayer. James 5:13-16",
+            time: "8:00 - 9:30 PM EST",
+            location: "ZOOM ID: 246 999 1581 Passcode: 1450",
+            image: "/images/events/pw.jpeg",
+            featured: false
+        },
+
+        {
+            month: "FEB",
+            day: "07",
+            title: "PIWC Philly Men's Ministry Presents",
+            description: "REAL TALK: Relationships",
+            time: "02:00 PM EST",
+            location: "2530 Wharton St, Philadelphia, PA 19146",
+            image: "/images/events/rt.jpeg",
+            featured: true
+        },
+
+        {
+            month: "FEB",
+            day: "14",
+            title: "Philadelphia District Women's Ministry Presents: Self-Love and Identity",
+            description: "For singles and couples. Join us let's explore meaningful messages and the powerful word of God.",
+            time: "02:00 PM EST",
+            location: "2530 Wharton St, Philadelphia, PA 19146",
+            image: "/images/events/sl.jpeg",
             featured: false
         }
     ],
@@ -619,7 +652,7 @@ const SITE_DATA = {
     // Set 'enabled: true' to show an alert, 'enabled: false' to hide it
     // Types: 'info' (blue), 'success' (green), 'warning' (yellow), 'urgent' (red)
     alert: {
-        enabled: true,
+        enabled: false,
         type: "warning", // info | warning | danger | success
         message: "Due to extreme weather, Sunday's service will be held virtually at <strong>8:15 AM</strong> this week only.",
         dismissible: true
@@ -627,7 +660,6 @@ const SITE_DATA = {
 };
 
 // Make data available globally
-// Make data available globally (browser-safe)
     window.SITE_DATA = SITE_DATA;
 
 // if (typeof module !== 'undefined' && module.exports) {
