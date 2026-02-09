@@ -62,12 +62,12 @@ const SITE_DATA = {
             ]
         },
 
-        {
-            image: "images/heroslides/redcn.jpg",
-            title: "",
-            subtitle: "",
-            showButtons: false
-        },
+        // {
+        //     image: "images/heroslides/redcn.jpg",
+        //     title: "",
+        //     subtitle: "",
+        //     showButtons: false
+        // },
 
         {
             image: "images/heroslides/h2.JPG",
@@ -121,30 +121,53 @@ const SITE_DATA = {
 
     // ==================== SERVICE TIMES ====================
     services: [
-        {
-            icon: "fas fa-church",
-            title: "Sunday Service",
-            time: "08:30 AM - 11:00 AM",
-            location: "Church Auditorium",
-            description: "Join us for inspiring worship and powerful preaching",
-            link: "templates/services.html"
-        },
+
         {
             icon: "fas fa-book-bible",
-            title: "Bible Study",
-            time: "Sundays @ 8:30 AM",
-            location: "Church Auditorium",
-            description: "Deep dive into God's Word",
-            link: "templates/services.html"
+            title: "Mid-Week Bible Study",
+            time: "Every Wednesday @ 07:00 PM EST",
+            location: "ZOOM ID: 645 479 0714 Passcode: 123",
+            description: "Join us every Wednesday evening for a time of Bible study and fellowship",
+            link: null
         },
+
+        {
+            icon: "fas fa-church",
+            title: "Friday Local Joint Service",
+            time: "Every Friday @ 07:30 PM EST",
+            location: "Church Auditorium",
+            description: "Join us every Friday evening for a time of prayer and worship",
+            link: null
+        },
+
         {
             icon: "fas fa-praying-hands",
             title: "Community Outreach & Food Donation",
-            time: "Saturdays @ 10:00 AM",
+            time: "Saturdays @ 10:00 AM EST",
             location: "Church Premises",
             description: "Serving our community with love",
             link: null
+        },
+
+        {
+            icon: "fas fa-book-bible",
+            title: " Sunday Bible Study",
+            time: "Sundays @ 8:15 AM EST",
+            location: "Church Auditorium",
+            description: "Deep dive into God's Word",
+            link: null
+        },
+
+        {
+            icon: "fas fa-church",
+            title: "Sunday Service",
+            time: "09:00 AM - 11:00 AM EST",
+            location: "Church Auditorium",
+            description: "Join us for inspiring worship and powerful preaching",
+            link: "templates/services.html"
         }
+        
+        
     ],
 
     // ==================== LEADERSHIP ====================
@@ -172,49 +195,40 @@ const SITE_DATA = {
     // ==================== UPCOMING EVENTS ====================
     events: [
 
-        {
-            month: "JAN",
-            day: "30",
-            title: "Regional Spiritual Clinic",
-            description: "",
-            time: "7:30 PM",
-            location: "Delaware",
-            image: "/images/events/sc.jpeg",
-            featured: false
-        },
+        // {
+        //     month: "JAN",
+        //     day: "30",
+        //     title: "Regional Spiritual Clinic",
+        //     description: "",
+        //     time: "7:30 PM",
+        //     location: "Delaware",
+        //     image: "/images/events/sc.jpeg",
+        //     featured: false
+        // },
 
-        {
-            month: "JAN",
-            day: "31",
-            title: "Pennsylvania Area Women's Prayer Meeting",
-            description: "Theme: Tie your robe around your waist and intercede for your children",
-            time: "9:00 AM EST",
-            location: "ZOOM ID: 314 934 2889 Passcode: 863130",
-            image: "/images/events/wpm.jpeg",
-            featured: true
-        },
+        // {
+        //     month: "JAN",
+        //     day: "31",
+        //     title: "Pennsylvania Area Women's Prayer Meeting",
+        //     description: "Theme: Tie your robe around your waist and intercede for your children",
+        //     time: "9:00 AM EST",
+        //     location: "ZOOM ID: 314 934 2889 Passcode: 863130",
+        //     image: "/images/events/wpm.jpeg",
+        //     featured: true
+        // },
 
-         {
-            month: "FEB",
-            day: "01",
-            title: "Red Carpet Service",
-            description: "Join US this Sunday for our PIWC appreciation day service & brunch",
-            time: "8:30 AM",
-            location: "Church Premises",
-            image: "/images/events/rc.jpeg",
-            featured: false
-        },
+        //  {
+        //     month: "FEB",
+        //     day: "01",
+        //     title: "Red Carpet Service",
+        //     description: "Join US this Sunday for our PIWC appreciation day service & brunch",
+        //     time: "8:30 AM",
+        //     location: "Church Premises",
+        //     image: "/images/events/rc.jpeg",
+        //     featured: false
+        // },
 
-        {
-            month: "FEB",
-            day: "01",
-            title: "National Prayer Watch",
-            description: "Unleashed To Transform Society Through Prayer. James 5:13-16",
-            time: "8:00 - 9:30 PM EST",
-            location: "ZOOM ID: 246 999 1581 Passcode: 1450",
-            image: "/images/events/pw.jpeg",
-            featured: false
-        },
+        
 
         {
             month: "FEB",
@@ -235,6 +249,17 @@ const SITE_DATA = {
             time: "02:00 PM EST",
             location: "2530 Wharton St, Philadelphia, PA 19146",
             image: "/images/events/sl.jpeg",
+            featured: false
+        },
+
+        {
+            month: "FEB",
+            day: "16 - 22",
+            title: "Ministries Week / Gosple Sunday",
+            description: "A time of fellowship and celebration of our ministries.",
+            time: "8:00 PM EST",
+            location: "2530 Wharton St, Philadelphia, PA 19146",
+            image: "",
             featured: false
         }
     ],
